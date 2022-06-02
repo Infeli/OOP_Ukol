@@ -8,7 +8,7 @@ public class SchoolClass {
     private Integer year;
     Teacher teacher = new Teacher();
     Student student = new Student();
-
+    private int i = 1;
 
     public List<Student> listOfStudents = new ArrayList<>();
 
@@ -16,7 +16,6 @@ public class SchoolClass {
         this.teacher = teacher;
         this.name = name;
         this.year = year;
-
     }
 
     public String getName() {
@@ -33,19 +32,6 @@ public class SchoolClass {
 
     public void setYear(Integer year) {
         this.year = year;
-    }
-
-    @Override
-    public String toString() {
-        return "Třída: " + name +
-                " (ročník: " + year + ") \n" +
-                "Třídní učitel: " + teacher.getSurname() + ", "+teacher.getTeachName() + "\n" +
-                "Počet studentů: " + listOfStudents.size();
-    }
-
-    public String newFormat(){
-        return name +", " + teacher.getTeachName() + " " + teacher.getSurname() + "\n" ;
-
     }
 
 
