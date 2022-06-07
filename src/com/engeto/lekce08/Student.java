@@ -2,13 +2,11 @@ package com.engeto.lekce08;
 
 import java.time.LocalDate;
 
-
-public class Student{
+public class Student {
     private String name;
     private String surname;
     private LocalDate dateBirth;
     private String id;
-
 
 
     public Student(){}
@@ -52,11 +50,13 @@ public class Student{
         this.id = id;
     }
 
-
     @Override
     public String toString() {
-        return "# " + "cislo radku" + " # " + "ID" + id + " - " + name + " " + surname + " " + " (" + dateBirth.getYear() + ") ";
+
+        return "# " + "cislo radku" + " # "+ "ID"+ id + ", " + name + " " + surname ;
     }
 
-
+    public String secondString(){
+        return "ID"+ id + ", " + name + " " + surname;
+    }
 }

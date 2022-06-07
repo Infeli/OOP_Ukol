@@ -13,16 +13,31 @@ public class Output implements InterfaceStudent{
 
     @Override
     public void secondTask(SchoolClass schoolClass) {
-         schoolClass.listOfStudents.forEach(System.out::println);
+        int line = 1;
+        for(int i = 0; i < schoolClass.listOfStudents.size(); i++){
+            System.out.println(line++);;
+            }
+
+            for (Student a : schoolClass.listOfStudents){
+                System.out.println(a);
+
+        }
+
+
+         //schoolClass.listOfStudents.forEach(System.out::println);
 
     }
+
+
 
     @Override
     public String thirdTask(SchoolClass schoolClass){
 
         return schoolClass.getName() + ", " + schoolClass.teacher.getTeachName() + " " + schoolClass.teacher.getSurname() + "\n"
-                + schoolClass.student.getId() + ", " + schoolClass.student.getName() + " " + schoolClass.student.getSurname();
+                + schoolClass.student.secondString();
     }
+
+
 
 
 

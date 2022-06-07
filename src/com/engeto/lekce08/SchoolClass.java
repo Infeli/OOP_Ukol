@@ -8,9 +8,10 @@ public class SchoolClass {
     private Integer year;
     Teacher teacher = new Teacher();
     Student student = new Student();
-    private int i = 1;
 
     public List<Student> listOfStudents = new ArrayList<>();
+
+    public SchoolClass(){};
 
     public SchoolClass (Teacher teacher, String name, Integer year){
         this.teacher = teacher;
@@ -33,6 +34,5 @@ public class SchoolClass {
     public void setYear(Integer year) {
         this.year = year;
     }
-
 
 }
