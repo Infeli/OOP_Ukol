@@ -8,6 +8,6 @@ public interface InterfaceStudent {
 
     String thirdTask(SchoolClass schoolClass);
 
-
+    void fileCreation(String filename, SchoolClass schoolClass);
 
 }

@@ -1,5 +1,9 @@
 package com.engeto.lekce08;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.stream.Collectors;
+
 public class Output implements InterfaceStudent{
 
     @Override
@@ -13,36 +17,32 @@ public class Output implements InterfaceStudent{
 
     @Override
     public void secondTask(SchoolClass schoolClass) {
-        int line = 1;
-        for(int i = 0; i < schoolClass.listOfStudents.size(); i++){
-            System.out.println(line++);;
+
+        for (int i = 0; i < schoolClass.listOfStudents.size(); i++) {
+            System.out.println("# " + (i+1) + " # " + schoolClass.listOfStudents.get(i));
             }
 
-            for (Student a : schoolClass.listOfStudents){
-                System.out.println(a);
-
-        }
-
-
-         //schoolClass.listOfStudents.forEach(System.out::println);
-
     }
-
 
 
     @Override
     public String thirdTask(SchoolClass schoolClass){
 
-        return schoolClass.getName() + ", " + schoolClass.teacher.getTeachName() + " " + schoolClass.teacher.getSurname() + "\n"
-                + schoolClass.student.secondString();
+        return schoolClass.getName() + ", " + schoolClass.teacher.getTeachName() + " " + schoolClass.teacher.getSurname() + "\n" +
+                schoolClass.listOfStudents.stream().map(student -> student.secondForm()).collect(Collectors.joining("\n"));
     }
 
+    @Override
+    public void fileCreation(String filename, SchoolClass schoolClass){
 
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(filename))){
 
+            System.out.println(schoolClass.listOfStudents.stream().map(student -> student.fileFormat()).collect(Collectors.joining("\n")));
 
+        }catch (Exception ex){
+            System.out.println("File has not been created! " + ex.getMessage());
+        }
 
-
-//     System.out.println("# " + i + " # " + "ID" + schoolClass.student.getId() + " - " + schoolClass.student.getName() + " " + schoolClass.student.getSurname() + " " + " (" + schoolClass.student.getDateBirth() + ") ");
-
+    }
 
 }

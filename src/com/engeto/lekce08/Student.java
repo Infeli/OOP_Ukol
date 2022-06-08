@@ -1,6 +1,7 @@
 package com.engeto.lekce08;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Student {
     private String name;
@@ -52,11 +53,17 @@ public class Student {
 
     @Override
     public String toString() {
-
-        return "# " + "cislo radku" + " # "+ "ID"+ id + ", " + name + " " + surname ;
+        return "ID"+ id + " - " + name + " " + surname + " " + "(" + dateBirth.getYear() + ")";
     }
 
-    public String secondString(){
+    public String secondForm(){
         return "ID"+ id + ", " + name + " " + surname;
+    }
+
+    public String fileFormat(){
+        LocalDate today = LocalDate.now();
+        Period p = Period.between(dateBirth, today);
+
+        return "Student: " + name + " " + surname + " with ID" + id + ", is " + p.getYears() + " years old";
     }
 }

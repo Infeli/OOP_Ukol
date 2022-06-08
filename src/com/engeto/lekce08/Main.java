@@ -1,9 +1,11 @@
 package com.engeto.lekce08;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.logging.Logger;
 
 public class Main {
+
+    static Logger logger = Logger.getLogger("com.engeto.lekce08");
 
     public static void main(String[] args) {
 
@@ -11,12 +13,9 @@ public class Main {
         Teacher u2 = new Teacher("Pavel", "Polák");
         Teacher u3 = new Teacher("Petr", "Honák");
 
-
         Student s1 = new Student("Petr", "Svoboda", LocalDate.of(2011, 6, 12), "001");
         Student s2 = new Student("Milan", "Říha", LocalDate.of(2010, 10, 8), "123");
         Student s3 = new Student("Jindřich", "Nový", LocalDate.of(2012, 5, 1), "345");
-
-
 
         SchoolClass c1 = new SchoolClass(u1, "4.C", 4);
 
@@ -34,10 +33,17 @@ public class Main {
 
         System.out.println("\n####################################");
         System.out.println(o1.thirdTask(c1));
+        System.out.println("\n####################################");
+        System.out.println("Creating file output: \n");
 
+        // vytvoření file
+        String fileName = "Vypis studentů.txt";
 
-
-
+        try{
+            o1.fileCreation(fileName,c1);
+        }catch (Exception ex){
+            logger.warning("File has not been created!" + fileName + ex.getMessage());
+        }
 
     }
 }
